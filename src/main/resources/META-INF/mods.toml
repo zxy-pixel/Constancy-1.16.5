@@ -1,0 +1,27 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="LGPL-3.0-only"
+[[mods]]
+modId="constancy"
+version="${version}"
+displayName="Constancy (1.16.5 Backport)"
+authors="TexTrue, PepperCode1; unofficial 1.16.5 backport contributors"
+displayURL="https://github.com/ThinkingStudios/Constancy"
+logoFile="icon.png"
+description='''
+Unofficial Forge 1.16.5 backport of Constancy/Continuity.
+Connected textures, emissive block/item textures and custom block layers.
+Forge 36.2.34/36.2.42 and Java 8. Optional Embeddium 0.3.18 integration.
+'''
+[[dependencies.constancy]]
+modId="forge"
+mandatory=true
+versionRange="[36.2.34,37)"
+ordering="NONE"
+side="CLIENT"
+[[dependencies.constancy]]
+modId="minecraft"
+mandatory=true
+versionRange="[1.16.5]"
+ordering="NONE"
+side="BOTH"

@@ -1,0 +1,54 @@
+plugins {
+    id 'dev.architectury.loom' version '1.13.464'
+    id 'maven-publish'
+}
+
+version = "${mod_version}+${minecraft_version}.forge"
+group = maven_group
+base.archivesName = archives_base_name
+
+repositories {
+    mavenCentral()
+    maven {
+        url = 'https://api.modrinth.com/maven'
+        content { includeGroup 'maven.modrinth' }
+    }
+}
+
+loom {
+    forge { mixinConfig 'continuity.mixins.json' }
+    runs { client { runDir 'run/client' } }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings "net.fabricmc:yarn:${yarn_mappings}:v2"
+    forge "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    modCompileOnly 'maven.modrinth:sk9rgfiA:9PbX7IEh'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 8
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filesMatching('META-INF/mods.toml') { expand 'version': project.version }
+}
+
+jar {
+    from('LICENSE', 'THIRD_PARTY_NOTICES.md', 'CHANGELOG.md')
+}
+

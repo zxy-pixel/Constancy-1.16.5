@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.pepperbell.continuity.client.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "plugin": "org.thinkingstudio.constancy.compat.ContinuityMixinPlugin",
+  "client": [
+    "ChunkRendererRegionAccessor",
+    "ResourcePackManagerMixin",
+    "WeightedModelAccessor",
+    "WeightedEntryAccessor",
+    "MultipartModelAccessor",
+    "compat.embeddium.EmbeddiumBlockRendererMixin",
+    "compat.embeddium.EmbeddiumWorldSliceMixin",
+    "IdentifierMixin",
+    "NamespaceResourceManagerMixin",
+    "SpriteMixin",
+    "NativeAtlasMixin",
+    "NativeBlockRendererMixin",
+    "NativeItemRendererMixin",
+    "RenderLayersMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
